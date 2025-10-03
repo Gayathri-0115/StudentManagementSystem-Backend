@@ -3,12 +3,13 @@ const mongoose = require('mongoose');
 const Student = require('./Models/student.js');
 const cors = require('cors');
 const app = express();
+require('dotenv').config();
 const port = 3000
 
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect('mongodb://127.0.0.1:27017/studentDB');
+mongoose.connect(process.env.MONGOURL+'studentDB');
 
 app.post("/students", async (req, res) => {
   try {
