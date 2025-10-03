@@ -7,10 +7,7 @@ require('dotenv').config();
 const port = 3000
 
 app.use(express.json());
-app.use(cors({
-  origin: "https://student-management-system-0106.netlify.app/", // replace with your Netlify URL
-  methods: ["GET", "POST", "PUT", "DELETE"],
-}));
+app.use(cors());
 
 mongoose.connect(process.env.MONGOURL+'studentDB');
 
